@@ -18,7 +18,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
+
 
 /**
  *
@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "fechamento")
-@XmlRootElement
+
 @NamedQueries({
     @NamedQuery(name = "Fechamento.findAll", query = "SELECT f FROM Fechamento f")
     , @NamedQuery(name = "Fechamento.findByCodigo", query = "SELECT f FROM Fechamento f WHERE f.codigo = :codigo")
