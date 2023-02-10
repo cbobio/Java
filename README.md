@@ -1,7 +1,7 @@
 
 <h1> Java </h1>
 
-<p> Todos O projetos Java que eu Costumo a desenvolver </p>
+<p> Todos os projetos Java que eu Costumo a desenvolver </p>
 
 
 
