@@ -1,0 +1,21 @@
+package br_atacadao_corp_login_security.infra.security;
+
+import br_atacadao_corp_login_security.entity.TbUser;
+import br_atacadao_corp_login_security.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+@Component
+public class CustomUserDetailsService implements UserDetailsService {
+    @Autowired
+    private UserRepository repository;
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        TbUser tbUser = this.repository.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        return new org.springframework.security.core.userdetails.User(tbUser.getEmail(), tbUser.getPassword(), new ArrayList<>());
+    }
+}
